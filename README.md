@@ -40,7 +40,7 @@ In a `dockerdesc.json`, you have 3 parts :
 
 ### Build descriptions
 
-```json
+```asciidoc
 "builds": {
   "name_of_the_build": {
     "path": {string} Path to the Dockerfile parent dir or path to the Dockerfile (relative to the dockerdesc.json file)
@@ -55,7 +55,7 @@ By default, when building an image, `docker-cm` will look in the target `Dockerf
 
 ### Run descriptions
 
-```json
+```asciidoc
 "runs": {
   "name_of_the_run": {
     "image": {string} Image name to run
@@ -70,7 +70,7 @@ By default, when building an image, `docker-cm` will look in the target `Dockerf
 The options (both for `run` or `build` docker command) are the arguments that will be passed to docker directly.
 For example, if you want to run `docker run --interactive=true -t ubuntu` the `options` json object will be :
 
-```json
+```asciidoc
 "options": {
   "interactive": true,
   "t": null
@@ -79,7 +79,7 @@ For example, if you want to run `docker run --interactive=true -t ubuntu` the `o
 
 ### Templates
 
-```json
+```asciidoc
 "templates": {
   "builds": {
     "name_of_that_build_template": {
