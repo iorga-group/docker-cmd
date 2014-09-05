@@ -1,0 +1,24 @@
+{
+    "templates": {
+        "builds": {
+            "default": {
+                "buildTagFromBuildName": false
+            }
+        }
+    },
+    "builds": {
+        "iorga_group/main": {
+            "path": "./main",
+            "options": {
+                "tag": "iorga_group/main2"
+            },
+            "buildParent": true
+        },
+        "iorga_group/dep1": {
+            "path": "dep1"
+        },
+        "iorga_group/dep2": {
+            "path": "dep2"
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "templates": {
+        "runs": {
+            "boolean-arguments": {
+                "options": {
+                    "tty": true,
+                    "detach": null
+                }
+            }
+        }
+    },
+    "builds": {
+        "iorga_group/main": {
+            "path": "./main",
+            "options": {
+                "tag": "iorga_group/main2"
+            }
+        },
+        "iorga_group/dep1": {
+            "path": "dep1"
+        },
+        "iorga_group/dep2": {
+            "path": "dep2"
+        }
+    },
+    "runs": {
+        "dep1": {
+            "image": "iorga_group/dep1"
+        },
+        "dep2": {
+            "image": "iorga_group/dep2",
+            "options": {
+                "p": ["8083:8080", "8012:8009"]
+            }
+        },
+        "main": {
+            "image": "iorga_group/main",
+            "templates": "boolean-arguments"
+        }
+    }
+}
