@@ -4,8 +4,13 @@
     "description": "A Docker NodeJS lib wrapping the Docker command line",
     "keywords": ["docker"],
     "homepage": "http://github.com/iorga-group/docker-cmd",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/iorga-group/docker-cmd.git"
+    },
+    "bugs": "https://github.com/iorga-group/docker-cmd/issues",
     "license": "Apache-2.0",
-    "author": "Anthony Ogier",
+    "author": "Anthony Ogier <npm@iorga.com>",
     "main": "index.js",
     "dependencies": {
         "commander": "~2.3.0",
