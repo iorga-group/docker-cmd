@@ -1,5 +1,7 @@
 # docker-cmd
 
+[![Build Status](https://travis-ci.org/iorga-group/docker-cmd.svg?branch=master)](https://travis-ci.org/iorga-group/docker-cmd)
+
 > Node.js libraries and binaries used to call the docker command line and manage docker from a json file.
 
 ## Installation
