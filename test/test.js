@@ -6,20 +6,24 @@ var sinon = require('sinon');
 var mockSpawn = require('mock-spawn');
 var child_process = require('child_process');
 var DockerCmdManager = require('../lib/docker-cmd-manager');
+var dockerCM = require('../lib/docker-cm');
+var path = require('path');
+var stream = require('mock-utf8-stream');
 
 function assertDockerCalledWith() {
     sinon.assert.calledWith(child_process.spawn, '/usr/bin/env', ['docker'].concat(Array.prototype.slice.call(arguments)));
 }
 
+var spawnStub;
+beforeEach(function() {
+    spawnStub = sinon.stub(child_process, 'spawn', mockSpawn());
+});
+afterEach(function() {
+    child_process.spawn.restore();
+    spawnStub = null;
+});
+
 describe('DockerCmdManager', function() {
-    var spawnStub;
-    beforeEach(function() {
-        spawnStub = sinon.stub(child_process, 'spawn', mockSpawn());
-    });
-    afterEach(function() {
-        child_process.spawn.restore();
-        spawnStub = null;
-    });
     it('should build dependencies by default', function(done) {
 
         new DockerCmdManager('./test/resources/dockerdesc1.json').build('iorga_group/main', function() {
@@ -85,5 +89,34 @@ describe('DockerCmdManager', function() {
             done();
         });
     });
+    it('should allow command property', function(done) {
 
+        new DockerCmdManager('./test/resources/dockerdesc1.json').run('command', function() {
+            assertDockerCalledWith('run', '--name=command', 'ubuntu', '/bin/bash', '-c', 'ls /tmp');
+
+            done();
+        });
+    });
+});
+
+describe('docker-cm', function() {
+    function execDockerCM(argv, callback) {
+        var stdout = new stream.MockWritableStream();
+        var stderr = new stream.MockWritableStream();
+        //stdout.captureData();
+        dockerCM({
+            stdout: stdout,
+            stderr: stderr,
+            argv: ['node', path.join(__dirname, '../bin/docker-cm.js')].concat(argv)
+        }, function(exitStatus) {
+            callback(exitStatus, stdout, stderr);
+        });
+    }
+    it('should build dependencies', function(done) {
+        execDockerCM('-C ./test/resources/dockerdesc1.json build iorga_group/main'.split(' '), function(exitStatus, stdout, stderr) {
+            assert.equal(exitStatus, 0);
+            sinon.assert.calledThrice(child_process.spawn);
+            done();
+        });
+    }) ;
 });

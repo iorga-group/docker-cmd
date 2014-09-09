@@ -1,6 +1,6 @@
 {
     "name": "docker-cmd",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "A Docker NodeJS lib wrapping the Docker command line and manage it from a json file.",
     "keywords": ["docker"],
     "homepage": "http://github.com/iorga-group/docker-cmd",
@@ -24,11 +24,12 @@
         "mock-spawn": "~0.2.1",
         "blanket": "~1.1.6",
         "travis-cov": "~0.2.5",
-        "mocha-multi": "~0.4.1"
+        "mocha-multi": "~0.4.1",
+        "mock-utf8-stream": "~0.1.1"
     },
     "config": {
         "blanket": {
-            "pattern": "//(lib\\/docker|bin\\/docker)/"
+            "pattern": "lib/docker"
         }
     },
     "scripts": {

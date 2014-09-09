@@ -36,6 +36,10 @@
         "main": {
             "image": "iorga_group/main",
             "templates": "boolean-arguments"
+        },
+        "command": {
+            "image": "ubuntu",
+            "command": ["/bin/bash", "-c", "ls /tmp"]
         }
     }
 }
