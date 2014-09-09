@@ -1,12 +1,12 @@
 {
     "templates": {
-        "builds": {
+        "build": {
             "default": {
                 "buildTagFromBuildName": false
             }
         }
     },
-    "builds": {
+    "build": {
         "iorga_group/main": {
             "path": "./main",
             "options": {

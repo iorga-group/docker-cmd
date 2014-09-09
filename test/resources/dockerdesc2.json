@@ -1,12 +1,12 @@
 {
     "templates": {
-        "builds": {
+        "build": {
             "default": {
                 "buildParent": false
             }
         }
     },
-    "builds": {
+    "build": {
         "iorga_group/main": {
             "path": "./main",
             "options": {

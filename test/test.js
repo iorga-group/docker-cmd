@@ -40,7 +40,7 @@ describe('DockerCmdManager', function() {
 
         new DockerCmdManager('./test/resources/dockerdesc1.json').build('iorga_group/dep2', function() {
             sinon.assert.calledOnce(child_process.spawn);
-            assertDockerCalledWith('build', '--tag=iorga_group/dep2', 'dep2');
+            assertDockerCalledWith('build', '--tag=iorga_group/dep2', 'test/resources/dep2');
 
             done();
         });
@@ -48,7 +48,7 @@ describe('DockerCmdManager', function() {
     it('should take build tag name from the build options if specified', function(done) {
 
         new DockerCmdManager('./test/resources/dockerdesc1.json').build('iorga_group/main', function() {
-            assertDockerCalledWith('build', '--tag=iorga_group/main2', './main');
+            assertDockerCalledWith('build', '--tag=iorga_group/main2', 'test/resources/main');
 
             done();
         });
@@ -56,7 +56,7 @@ describe('DockerCmdManager', function() {
     it('should allow bypassing automatic build tag name', function(done) {
 
         new DockerCmdManager('./test/resources/dockerdesc3.json').build('iorga_group/dep2', function() {
-            assertDockerCalledWith('build', 'dep2');
+            assertDockerCalledWith('build', 'test/resources/dep2');
 
             done();
         });

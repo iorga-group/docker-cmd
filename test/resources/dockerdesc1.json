@@ -1,6 +1,6 @@
 {
     "templates": {
-        "runs": {
+        "run": {
             "boolean-arguments": {
                 "options": {
                     "tty": true,
@@ -9,7 +9,7 @@
             }
         }
     },
-    "builds": {
+    "build": {
         "iorga_group/main": {
             "path": "./main",
             "options": {
@@ -23,7 +23,7 @@
             "path": "dep2"
         }
     },
-    "runs": {
+    "run": {
         "dep1": {
             "image": "iorga_group/dep1"
         },
