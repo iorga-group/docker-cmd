@@ -33,9 +33,9 @@ CommandOptions:     All the options to override from the dockerdesc file
 CommandArgs:        The args to pass to the docker command, after the command options, overriding those described in the dockerdesc file
 ```
 
-The `dockerdesc.json` file allows you to store those argument you want to give to the `docker` command, enhanced by a templates system.
+The `dockerdesc.json` file allows you to store the arguments you want to give to the `docker` command, enhanced by a templates system.
 
-Here is he format :
+Here is the format :
 
 ```json
 {
@@ -72,9 +72,9 @@ Here is he format :
  * `a_docker_command` is for example `run` or `build` or another docker command
  * `a_docker_option` is for example `host` or `H` which corresponds to `--host` or `-H` of `docker` [command line options](https://docs.docker.com/reference/commandline/cli/) (before the COMMAND).
  * `a_specific_option_for_that_command` is a specific option used by `docker-cm` for the docker command it refers to
- * `a_docker_option_for_that_command` is an option for the docker command it refers to. For example, it is `detach` or `p` for `--detach` or `-p` options for the `run` command. See the [options definition section][#options] for more information.
+ * `a_docker_option_for_that_command` is an option for the docker command it refers to. For example, it is `detach` or `p` for `--detach` or `-p` options for the `run` command. See the [options definition section](#options) for more information.
  * "`_`" property in the `options` section is used for the arguments passed to the docker command after its options
- * `templates` in description sections is a list of the templates to use for that description. A template named `default` will always be used by every descriptions without specifying it. Check the [templates definition section][#templates] for more information.
+ * `templates` in description sections is a list of the templates to use for that description. A template named `default` will always be used by every descriptions without specifying it. Check the [templates definition section](#templates) for more information.
 
 ### Build specific options
 
