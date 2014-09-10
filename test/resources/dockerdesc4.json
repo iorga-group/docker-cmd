@@ -1,0 +1,11 @@
+{
+    "templates": {
+        "run": {
+            "default": {
+                "options": {
+                    "detach": "true"
+                }
+            }
+        }
+    }
+}

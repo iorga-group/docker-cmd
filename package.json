@@ -1,6 +1,6 @@
 {
     "name": "docker-cmd",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "description": "A Docker NodeJS lib wrapping the Docker command line and manage it from a json file.",
     "keywords": ["docker"],
     "homepage": "http://github.com/iorga-group/docker-cmd",

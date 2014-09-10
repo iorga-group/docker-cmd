@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('assert');
-//var should = require('should');
+var should = require('should');
 var sinon = require('sinon');
 var mockSpawn = require('mock-spawn');
 var child_process = require('child_process');
@@ -97,9 +97,18 @@ describe('DockerCmdManager', function() {
             done();
         });
     });
+    it('should call the docker command even if not found in the dockerdesc, using the default template', function(done) {
+
+        new DockerCmdManager('./test/resources/dockerdesc4.json').run('test', function() {
+            assertDockerCalledWith('run', '--detach=true', '--name=test', 'test');
+
+            done();
+        });
+    });
 });
 
 describe('docker-cm', function() {
+
     function execDockerCM(argv, callback) {
         var stdout = new stream.MockWritableStream();
         var stderr = new stream.MockWritableStream();
@@ -112,7 +121,9 @@ describe('docker-cm', function() {
             callback(exitStatus, stdout, stderr);
         });
     }
+
     it('should build dependencies', function(done) {
+
         execDockerCM('-C ./test/resources/dockerdesc1.json build iorga_group/main'.split(' '), function(exitStatus, stdout, stderr) {
             assert.equal(exitStatus, 0);
             sinon.assert.calledThrice(child_process.spawn);
