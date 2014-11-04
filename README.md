@@ -7,6 +7,12 @@
 ## Installation
 `npm install -g docker-cmd` or as a dependency in your `package.json` if you want to use it as a library.
 
+If you have installed NodeJS on a debian based system with official packages, you have to create a symlink in order to have `node` command in the path ([like said here](http://stackoverflow.com/a/18130296/535203)):
+
+```bash
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+```
+
 ## Usage
 `docker-cm` (for "docker command manager") will read a `dockerdesc.json` file and call `docker` with the parameters described in that file.
 
