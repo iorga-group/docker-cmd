@@ -170,7 +170,7 @@ Here is a sample `dockerdesc.json` file :
 					"detach": "true",
 					"interactive": "true"
 				}
-			}
+			},
 			"attached": {
 				"options": {
 				    "detach": "false",
